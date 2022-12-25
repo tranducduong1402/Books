@@ -1,0 +1,32 @@
+﻿@model Books.Data.ViewModels.NewBookVM
+
+<div class="commentBox">
+    <h3>Đánh giá sách</h3>
+    @using (Html.BeginForm("Add", "Rattings", FormMethod.Post, new { onsubmit = "return SubmitComment" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <div class="col-md-12">
+                <span class="text-warning">
+                    <i class="rattingStar far fa-star" td-value="1"></i>
+                    <i class="rattingStar far fa-star" td-value="2"></i>
+                    <i class="rattingStar far fa-star" td-value="3"></i>
+                    <i class="rattingStar far fa-star" td-value="4"></i>
+                    <i class="rattingStar far fa-star" td-value="5"></i>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <textarea class="form-control" asp-for="Comment" style="width: 100%" required rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" name="Star" id="Star" value="0" />
+                <input type="submit" id="btnRegister" name="btnRegister" value="Đánh giá" class="btn btn-warning" />
+            </div>
+        </div>
+    }
+</div>
